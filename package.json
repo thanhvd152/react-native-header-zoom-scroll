@@ -1,0 +1,41 @@
+{
+    "name": "react-native-header-zoom-scroll",
+    "version": "1.0.0",
+    "description": "A simple and fully customizable React Native component that implements scrollView zoom header",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/thanhvd152/react-native-header-zoom-scroll.git"
+    },
+    "devDependencies": {
+        "typescript": "^4.2.4",
+        "react-native-typescript-transformer": "^1.2.13"
+    },
+    "dependencies": {
+        "react-native-status-bar-height": "^2.6.0"
+    },
+    "keywords": [
+        "react-native",
+        "react-component",
+        "react-native-component",
+        "react",
+        "react native",
+        "mobile",
+        "ios",
+        "android",
+        "ui",
+        "header",
+        "scrollView",
+        "zoom",
+        "image"
+    ],
+    "author": "THANHVD",
+    "license": "VDT",
+    "bugs": {
+        "url": "http://"
+    },
+    "homepage": "https://github.com/thanhvd152/react-native-header-zoom-scroll.git"
+}

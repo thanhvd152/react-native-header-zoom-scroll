@@ -9,7 +9,8 @@ Easily create ScrollView with Animation zoom header, with lots of customization
 
 # Setup
 
-yarn add react-native-header-zoom-scroll
+
+This library is available on npm, install it with: `npm i react-native-header-zoom-scroll` or `yarn react-native-header-zoom-scroll`.
 
 # Usage
 
@@ -70,3 +71,17 @@ const App: () => Node = () => {
 export default App;
 
 ```
+
+## Available props
+
+| Name                           | Type             | Default                        | Description                                                                                                                                |
+| ------------------------------ | ---------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| headerComponent                | JSXAttribute     |  null         |                    Component inside Header                                                                                                                               |
+| headerHeight                   | number           | 0                           | Height of big header                                                                                                |
+| backgroundHeaderComponent      | JSXAttribute.    | null                            | Background of header Image,View ...                                                                                                                     |
+| smallHeaderHeight             | number           | 0                            | Height of small header                                                                                       |
+| contentSmallHeader            | JSXAttribute             | null           | content of small header                                                                                             |
+| statusBarBackground           | string             | transparent          | Background statusbar
+
+
+| fadeSmallHeader           | bool             | false          | animation fade smallHeader when scroll

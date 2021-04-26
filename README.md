@@ -74,16 +74,15 @@ export default App;
 
 ## Available props
 
-| Name                           | Type             | Default                        | Description                                                                                                                                |
-| ------------------------------ | ---------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| headerComponent                | JSXAttribute     |  null         |                    Component inside Header                                                                                 |
-| headerHeight                  | number            | 0                           | Height of big header                                                                                         |
-| backgroundHeaderComponent     | JSXAttribute.     | null                            | Background of header Image,View ...                                                                       | 
-| smallHeaderHeight             | number            | 0                            | Height of small header                                                                                       |
-| contentSmallHeader            | JSXAttribute      | null           | content of small header                                                                                                   |
-| fadeSmallHeader               | bool              | false          | animation fade smallHeader when scroll
-                                |
-| statusBarBackground           | string            | transparent          | Background statusbar |
+| Name                           | Type             | Default                        | Description                                                                                               |
+| ------------------------------ | ---------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------- |
+| headerComponent                | JSXAttribute     |  null                          | Component inside Header                                                                                   |
+| headerHeight                  | number            | 0                              | Height of big header                                                                                      |
+| backgroundHeaderComponent     | JSXAttribute.     | null                           | Background of header Image,View ...                                                                       | 
+| smallHeaderHeight             | number            | 0                              | Height of small header                                                                                    |
+| contentSmallHeader            | JSXAttribute      | null                           | content of small header                                                                                   |
+| fadeSmallHeader               | bool              | false                          | animation fade smallHeader when scroll                                                                    |
+| statusBarBackground           | string            | transparent                    | Background statusbar                                                                                      |
                                 
                                 
 

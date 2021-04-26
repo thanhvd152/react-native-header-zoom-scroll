@@ -30,7 +30,6 @@ const ScrollZoomHeader: React.FC<Props> = (props) => {
         outputRange: [0, 1],
         extrapolateRight: 'clamp'
     });
-
     let translateYHeaderComponent = scrollY.interpolate({
         inputRange: [0, 1],
         outputRange: [0, -1],
@@ -38,9 +37,7 @@ const ScrollZoomHeader: React.FC<Props> = (props) => {
     });
     return (
         <>
-
             <Animated.ScrollView
-
                 {...props}
                 scrollEventThrottle={1}
                 onScroll={Animated.event(
@@ -54,8 +51,6 @@ const ScrollZoomHeader: React.FC<Props> = (props) => {
                 )}
             >
                 <View style={{ height: (props.headerHeight || 0) - statusBarHeight }} />
-
-
                 {props.children}
             </Animated.ScrollView>
             <Animated.View style={[styles.backgroundHeader, {
@@ -64,17 +59,13 @@ const ScrollZoomHeader: React.FC<Props> = (props) => {
             }]}>
                 {props.backgroundHeaderComponent}
             </Animated.View>
-
             <Animated.View style={[styles.wrapCustomComponent, { height: props.headerHeight, transform: [{ translateY: translateYHeaderComponent }] }]} >
                 <View style={{ height: props.smallHeaderHeight + props.smallHeaderHeight }} />
                 {props.headerComponent}
             </Animated.View>
-
-
             <Animated.View style={[styles.wrapSmallHeader, {
                 height: (props.smallHeaderHeight || 0) + statusBarHeight,
                 opacity: props.fadeSmallHeader ? opacitiCardTop : 1,
-
             }]}>
                 <View style={{
                     width: '100%',
@@ -83,11 +74,6 @@ const ScrollZoomHeader: React.FC<Props> = (props) => {
                 }} />
                 {props.contentSmallHeader}
             </Animated.View>
-
-
-
-
-
         </>
     )
 }

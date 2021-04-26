@@ -81,9 +81,10 @@ export default App;
 | backgroundHeaderComponent     | JSXAttribute.     | null                            | Background of header Image,View ...                                                                       | 
 | smallHeaderHeight             | number            | 0                            | Height of small header                                                                                       |
 | contentSmallHeader            | JSXAttribute      | null           | content of small header                                                                                                   |
-| statusBarBackground           | string            | transparent          | Background statusbar
-                                |
 | fadeSmallHeader               | bool              | false          | animation fade smallHeader when scroll
                                 |
+| statusBarBackground           | string            | transparent          | Background statusbar
+                                
+                                
 
 

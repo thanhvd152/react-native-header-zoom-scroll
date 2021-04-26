@@ -1,6 +1,10 @@
 # react-native-header-zoom-scroll
 
 Easily create ScrollView with Animation zoom header, with lots of customization
+<p align="center">
+<img src="/.github/demo/demo.gif" height="500" />
+</p>
+
 # Features
 * Smooth animation
 * Custom background header

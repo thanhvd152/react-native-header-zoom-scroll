@@ -83,7 +83,7 @@ export default App;
 | contentSmallHeader            | JSXAttribute      | null           | content of small header                                                                                                   |
 | fadeSmallHeader               | bool              | false          | animation fade smallHeader when scroll
                                 |
-| statusBarBackground           | string            | transparent          | Background statusbar
+| statusBarBackground           | string            | transparent          | Background statusbar |
                                 
                                 
 

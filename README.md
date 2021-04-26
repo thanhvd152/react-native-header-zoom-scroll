@@ -12,6 +12,8 @@ Easily create ScrollView with Animation zoom header, with lots of customization
 yarn add react-native-header-zoom-scroll
 
 # Usage
+
+```javascript
 import React from 'react';
 import type { Node } from 'react';
 import {
@@ -66,3 +68,5 @@ const App: () => Node = () => {
 };
 
 export default App;
+
+```

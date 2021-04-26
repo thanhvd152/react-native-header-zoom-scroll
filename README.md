@@ -7,3 +7,62 @@ Easily create ScrollView with Animation zoom header, with lots of customization
 * Custom small header
 * Transparent small header
 
+# Setup
+
+yarn add react-native-header-zoom-scroll
+
+# Usage
+import React from 'react';
+import type { Node } from 'react';
+import {
+  SafeAreaView,
+  Text,
+  Image
+} from 'react-native';
+import ScrollZoomHeader from 'react-native-header-zoom-scroll';
+import { View } from 'react-native';
+
+const App: () => Node = () => {
+
+
+  return (
+    <SafeAreaView >
+      <ScrollZoomHeader
+        showsVerticalScrollIndicator={false}
+        smallHeaderHeight={
+          60
+        }
+        contentSmallHeader={<View style={{
+          flex: 1
+        }}>
+          <Text style={{ color: '#fff', fontWeight: '600', marginLeft: 10 }}>CUSTOM SMALL HEADER</Text>
+        </View>}
+        headerComponent={
+          <View>
+            <Text style={{ color: '#fff', fontWeight: '600', marginLeft: 10 }}>CUSTOM  HEADER COMPONENT</Text>
+
+          </View>
+        }
+        headerHeight={300}
+        backgroundHeaderComponent={
+          <Image
+            source={{ uri: 'https://i.9mobi.vn/cf/images/2015/03/nkk/hinh-dep-12.jpg' }}
+            style={{
+              width: '100%',
+              height: '100%'
+            }}
+          />
+        }
+      >
+        <Text style={{ fontWeight: '600', marginLeft: 10 }}>CUSTOM  HEADER COMPONENT</Text>
+
+        <View style={{
+          height: 1000,
+        }} />
+
+      </ScrollZoomHeader>
+    </SafeAreaView>
+  );
+};
+
+export default App;

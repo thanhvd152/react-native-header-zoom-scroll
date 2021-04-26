@@ -30,15 +30,17 @@ const ScrollZoomHeader: React.FC<Props> = (props) => {
         outputRange: [0, 1],
         extrapolateRight: 'clamp'
     });
+
+    let translateYHeaderComponent = scrollY.interpolate({
+        inputRange: [0, 1],
+        outputRange: [0, -1],
+        // extrapolate: 'clamp',
+    });
     return (
         <>
-            <Animated.View style={[styles.backgroundHeader, {
-                height: props.headerHeight,
-                transform: [{ scale: scaleYCardTop }, { translateY: translateYCardTop }]
-            }]}>
-                {props.backgroundHeaderComponent}
-            </Animated.View>
+
             <Animated.ScrollView
+
                 {...props}
                 scrollEventThrottle={1}
                 onScroll={Animated.event(
@@ -51,12 +53,24 @@ const ScrollZoomHeader: React.FC<Props> = (props) => {
                     ]
                 )}
             >
-                <View style={{ height: (props.headerHeight || 0) - statusBarHeight }} >
-                    <View style={{ height: props.smallHeaderHeight }} />
-                    {props.headerComponent}
-                </View>
+                <View style={{ height: (props.headerHeight || 0) - statusBarHeight }} />
+
+
                 {props.children}
             </Animated.ScrollView>
+            <Animated.View style={[styles.backgroundHeader, {
+                height: props.headerHeight,
+                transform: [{ scale: scaleYCardTop }, { translateY: translateYCardTop }]
+            }]}>
+                {props.backgroundHeaderComponent}
+            </Animated.View>
+
+            <Animated.View style={[styles.wrapCustomComponent, { height: props.headerHeight, transform: [{ translateY: translateYHeaderComponent }] }]} >
+                <View style={{ height: props.smallHeaderHeight + props.smallHeaderHeight }} />
+                {props.headerComponent}
+            </Animated.View>
+
+
             <Animated.View style={[styles.wrapSmallHeader, {
                 height: (props.smallHeaderHeight || 0) + statusBarHeight,
                 opacity: props.fadeSmallHeader ? opacitiCardTop : 1,
@@ -69,6 +83,11 @@ const ScrollZoomHeader: React.FC<Props> = (props) => {
                 }} />
                 {props.contentSmallHeader}
             </Animated.View>
+
+
+
+
+
         </>
     )
 }
@@ -76,13 +95,14 @@ export default ScrollZoomHeader
 const styles = StyleSheet.create({
     backgroundHeader: {
         position: 'absolute',
-        zIndex: 0,
+        zIndex: 1,
         width: '100%'
     },
     wrapSmallHeader: {
         width: '100%',
         backgroundColor: 'transparent',
         position: 'absolute',
-        zIndex: 2,
-    }
+        zIndex: 3,
+    },
+    wrapCustomComponent: { position: 'absolute', width: '100%', zIndex: 2 }
 })

@@ -14,7 +14,7 @@ Easily create ScrollView with Animation zoom header, with lots of customization
 # Setup
 
 
-This library is available on npm, install it with: `npm i react-native-header-zoom-scroll` or `yarn react-native-header-zoom-scroll`.
+This library is available on npm, install it with: `npm i react-native-header-zoom-scroll` or `yarn  react-native-header-zoom-scroll`.
 
 # Usage
 

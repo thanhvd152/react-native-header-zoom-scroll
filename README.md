@@ -61,7 +61,7 @@ const App: () => Node = () => {
           />
         }
       >
-        <Text style={{ fontWeight: '600', marginLeft: 10 }}>CUSTOM  HEADER COMPONENT</Text>
+        <Text style={{ fontWeight: '600', marginLeft: 10 }}>CONTENT</Text>
 
         <View style={{
           height: 1000,

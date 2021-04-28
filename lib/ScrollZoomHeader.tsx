@@ -1,20 +1,23 @@
 import React from 'react'
 import { StyleSheet, View, Animated, Platform, StatusBar, ScrollViewProps } from 'react-native'
 import { getStatusBarHeight } from 'react-native-status-bar-height'
-import { JsxAttribute } from 'typescript'
 const statusBarHeight: number = Platform.OS == 'ios' ? getStatusBarHeight() : StatusBar.currentHeight || 0
 export interface Props extends ScrollViewProps {
-    headerComponent?: JsxAttribute;
+    headerComponent?: React.ComponentType<any> | React.ReactElement | null,
     headerHeight: number | 0,
-    backgroundHeaderComponent?: JsxAttribute,
+    backgroundHeaderComponent?: React.ComponentType<any> | React.ReactElement | null,
     smallHeaderHeight: number | 0,
-    contentSmallHeader: JsxAttribute,
+    contentSmallHeader: React.ComponentType<any> | React.ReactElement | null,
     statusBarBackground: string | 'transparent',
     fadeSmallHeader: boolean | false
 }
 const ScrollZoomHeader: React.FC<Props> = (props) => {
     const distanceHeader = props.headerHeight - props.smallHeaderHeight - statusBarHeight
-    const scrollY = new Animated.Value(0)
+    const ref = React.useRef(0);
+    const scrollY = new Animated.Value(ref.current);
+
+
+
     let translateYCardTop = scrollY.interpolate({
         inputRange: [0, distanceHeader],
         outputRange: [0, -distanceHeader],
@@ -35,6 +38,10 @@ const ScrollZoomHeader: React.FC<Props> = (props) => {
         outputRange: [0, -1],
         // extrapolate: 'clamp',
     });
+
+    const renderBackgroundHeaderComponent = React.useMemo(() => props.backgroundHeaderComponent, [props.backgroundHeaderComponent])
+    const renderContentSmallHeader = React.useMemo(() => props.contentSmallHeader, [props.contentSmallHeader])
+    const renderHeaderComponent = React.useMemo(() => props.headerComponent, [props.headerComponent])
     return (
         <>
             <Animated.ScrollView
@@ -45,9 +52,17 @@ const ScrollZoomHeader: React.FC<Props> = (props) => {
                         {
                             nativeEvent: {
                                 contentOffset: { y: scrollY },
-                            },
+                            }
                         },
-                    ]
+
+                    ],
+                    {
+                        listener: (event: any) => {
+                            const offsetY = event.nativeEvent.contentOffset.y
+                            ref.current = offsetY
+                        },
+                        useNativeDriver: false
+                    }
                 )}
             >
                 <View style={{ height: (props.headerHeight || 0) - statusBarHeight }} />
@@ -57,11 +72,11 @@ const ScrollZoomHeader: React.FC<Props> = (props) => {
                 height: props.headerHeight,
                 transform: [{ scale: scaleYCardTop }, { translateY: translateYCardTop }]
             }]}>
-                {props.backgroundHeaderComponent}
+                {renderBackgroundHeaderComponent}
             </Animated.View>
             <Animated.View style={[styles.wrapCustomComponent, { height: props.headerHeight, transform: [{ translateY: translateYHeaderComponent }] }]} >
                 <View style={{ height: props.smallHeaderHeight + props.smallHeaderHeight }} />
-                {props.headerComponent}
+                {renderHeaderComponent}
             </Animated.View>
             <Animated.View style={[styles.wrapSmallHeader, {
                 height: (props.smallHeaderHeight || 0) + statusBarHeight,
@@ -72,7 +87,7 @@ const ScrollZoomHeader: React.FC<Props> = (props) => {
                     height: statusBarHeight,
                     backgroundColor: props.statusBarBackground
                 }} />
-                {props.contentSmallHeader}
+                {renderContentSmallHeader}
             </Animated.View>
         </>
     )

@@ -1,6 +1,6 @@
 {
     "name": "react-native-header-zoom-scroll",
-    "version": "1.0.3",
+    "version": "1.2.0",
     "description": "A simple and fully customizable React Native component that implements scrollView zoom header",
     "main": "index.js",
     "scripts": {
